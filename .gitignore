@@ -1,0 +1,34 @@
+# Local environment and credentials; examples remain trackable.
+.env
+.env.*
+!.env.example
+!.env.*.example
+!*.env.example
+.aws/
+credentials/
+secrets/
+*.pem
+*.key
+
+# Platform junk.
+.DS_Store
+Thumbs.db
+
+# Build/cache outputs, if introduced later.
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.cache/
+.pytest_cache/
+.mypy_cache/
+build/
+dist/
+target/
+coverage/
+*.log
+
+# Sensitive or large local data; see evaluation/README.md.
+evaluation/local/
+data/local/

@@ -1,0 +1,9 @@
+# Evaluation and replay
+
+**Implementation:** Planning only; no replay runner, dataset, fixtures, or results are supplied. [C6](../docs/components/C6-observability-and-replay.md#c6) owns trace/replay responsibility; [IC09](../docs/contracts/register.md#ic09) and [IC10](../docs/contracts/register.md#ic10) define proposed semantics. Experiments are canonical in the [experiment register](../docs/experiments/README.md), requirements in [requirements](../docs/requirements.md).
+
+Proposed workflow: collect consented inputs and annotations; preserve capture timing, source/evidence identity, preprocessing, setup, and dependency versions; replay in an isolated session with an explicit clock; distinguish recorded outputs from recomputed outputs; review state, timer, grounding, and presentation behavior against labeled evidence. Record model nondeterminism and any dependency substitution. Replay must not mutate live state or deliver real alerts. Numerical targets await pilot evidence.
+
+Local-only recordings, datasets, prompts, and sensitive traces belong under `evaluation/local/` or `data/local/` (both ignored; directories need not exist yet). They are storage conventions, not permission to record. Recording remains opt-in under the pitch proposal; consent, redaction, retention, access, and replay policy remain [O06](../docs/decisions/README.md#o06). Metadata logging and retained media need separate decisions. Large cooking recordings/datasets must not be committed. Small reviewed evaluation cases, annotations, and dataset references may be tracked when consistent with the chosen policy; an ignored path alone does not establish appropriate handling.
+
+The first proposed software investigation is [E04](../docs/experiments/README.md#e04). Live placement and user experience still require [E01](../docs/experiments/README.md#e01) and [E05](../docs/experiments/README.md#e05).
